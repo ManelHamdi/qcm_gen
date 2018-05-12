@@ -137,7 +137,6 @@
 
 <div class="cardl" th:each="lstQs: ${LstQs}">
 
-
     <form action="/GererQs" method="post" enctype="multipart/form-data">
         <input type="hidden" name="idModule" th:value="${lstQs.idModule}">
         <input type="hidden" name="idQs" th:value="${lstQs.idQuestion}">
