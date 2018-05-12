@@ -87,6 +87,7 @@ public class ControllerQuestion {
 
     }
 
+
     @RequestMapping(value = "/GererQs", params = "mod", method = RequestMethod.POST)
     public String modQues(@RequestParam int idQs,
                           ModelMap modelMap) {

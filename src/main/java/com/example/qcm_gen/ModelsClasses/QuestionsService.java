@@ -16,6 +16,7 @@ public class QuestionsService implements IQuestionsService {
     private static SessionFactory sessionFactory;
 
     static {
+
         try {
             sessionFactory = new Configuration().configure().buildSessionFactory();
         } catch (Exception ex) {
@@ -35,6 +36,7 @@ public class QuestionsService implements IQuestionsService {
     @Override
     public List<Questions> ListQues(int idModule) {
         List<Questions> results = null;
+
         try {
             Session session = sessionFactory.openSession();
             results = session.createQuery("from Questions q where q.idModule = " + idModule + " order by idQuestion DESC ").list();
@@ -47,6 +49,7 @@ public class QuestionsService implements IQuestionsService {
 
     @Override
     public Boolean deleteQs(Questions idQs) {
+
         try {
             iQuestionsDAO.delete(idQs);
             return true;
@@ -65,6 +68,7 @@ public class QuestionsService implements IQuestionsService {
     public Boolean update(Questions ques) {
         try {
             return iQuestionsDAO.update(ques);
+
         } catch (Exception e) {
             e.printStackTrace();
             return false;
