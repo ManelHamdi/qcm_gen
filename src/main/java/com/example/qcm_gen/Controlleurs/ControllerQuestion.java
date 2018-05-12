@@ -17,8 +17,8 @@ public class ControllerQuestion {
 
     @GetMapping("/")
     public String ques(ModelMap modelMap) {
-        List<Questions> lstqs = iQuestionsService.ListQues(1);
-        modelMap.put("LstQs", lstqs);
+        List<Questions> lstq = iQuestionsService.ListQues(1);
+        modelMap.put("LstQs", lstq);
         return "Questions/CreateQuestion";
     }
 
