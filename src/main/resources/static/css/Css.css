@@ -1,0 +1,86 @@
+.card {
+    background-color: #F7F9F9;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    width: 30%;
+    padding: 1%;
+    text-align: center;
+    margin-right: auto;
+    margin-left: 35%;
+    margin-top: 5%;
+    display: inline-block;
+}
+
+.cardl {
+    background-color: #F7F9F9;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    width: 50%;
+    padding-left: 2%;
+    margin-bottom: 2%;
+    display: inline-block;
+}
+
+.btns, .btnr {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #ff8000;
+    text-align: center;
+    cursor: pointer;
+    width: 45%;
+    font-size: 15px;
+}
+
+.btnm {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    margin-top: 1px;
+    background-color: #00b33c;
+    text-align: center;
+    cursor: pointer;
+    width: 30%;
+    font-size: 15px;
+}
+
+.btnd {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    margin-top: 1px;
+    margin-left: 5%;
+    background-color: #cc0000;
+    text-align: center;
+    cursor: pointer;
+    width: 30%;
+    font-size: 15px;
+}
+
+.textt {
+    outline: none;
+    font-size: 14px;
+    border: none;
+    background: white;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.05);
+    font-family: 'Times New Roman', Times, serif;
+    letter-spacing: 1px;
+    padding: 12px 20px 12px 40px;
+}
+
+.text {
+    outline: none;
+    font-size: 14px;
+    border: none;
+    background: white;
+    width: 80%;
+    background-color: rgba(0, 0, 0, 0.05);
+    font-family: 'Times New Roman', Times, serif;
+    letter-spacing: 1px;
+    padding: 12px 20px 12px 40px;
+}

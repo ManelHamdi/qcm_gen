@@ -11,7 +11,7 @@ public class Questions {
     private int idQuestion;
     private int idModule;
     private String question;
-    private boolean cm;
+    private int cm;
     private String explicationReponse;
     private String reponse1;
     private String reponse2;
@@ -54,11 +54,11 @@ public class Questions {
 
     @Basic
     @Column(name = "cm", nullable = false)
-    public boolean isCm() {
+    public int getCm() {
         return cm;
     }
 
-    public void setCm(boolean cm) {
+    public void setCm(int cm) {
         this.cm = cm;
     }
 

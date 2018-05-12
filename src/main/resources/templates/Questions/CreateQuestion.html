@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="https://www.thymeleaf.org/ ">
+<head>
+    <meta charset="UTF-8">
+    <title>Question</title>
+    <link rel="stylesheet" href="css/Css.css" type="text/css" media="all"/>
+
+    <script>
+        function hiddenShow() {
+            var x = document.getElementById("cq");
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            } else {
+                x.style.display = "block";
+            }
+        }
+    </script>
+
+    <script>
+        function fctmult() {
+            var x = document.getElementById("tabc");
+            var y = document.getElementById("tabr");
+            if (x.style.display === "block") {
+                x.style.display = "none";
+                y.style.display = "block"
+            } else {
+                x.style.display = "block";
+                y.style.display = "none";
+            }
+        }
+
+        function fctuniq() {
+            var x = document.getElementById("tabr");
+            var y = document.getElementById("tabc");
+            if (x.style.display === "block") {
+                x.style.display = "none";
+                y.style.display = "block"
+            } else {
+                x.style.display = "block";
+                y.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+
+<br/>
+<button onclick="hiddenShow()" class="btnm"> Creer Question</button>
+<br/><br/>
+
+<!-- ************** creation de Question *************** -->
+
+
+<div style="display: none" class="card" id="cq">
+    <form action="/CreerQs" method="post" enctype="multipart/form-data">
+
+        <input class="text" placeholder="Question" name="question" type="text" required="">
+        <br/><br/>
+        <input class="text" placeholder="Nombre point" name="nbrpoint" type="number" required="">
+        <br/><br/>
+
+        <input type="radio" name="choix" value="0" onchange="fctuniq()" checked>choix Unique
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="radio" name="choix" value="1" onchange="fctmult()">choix Multiple
+        <br/>
+        <div id="tabr">
+            <table style="width: 100%">
+                <tr>
+                    <td><p>Correct</p></td>
+                    <td><p>Proposition</p></td>
+                </tr>
+                <tr>
+                    <td><input type="radio" name="correcte" value="1"></td>
+                    <td><input class="textt" placeholder="Proposition 1" name="proposition1"
+                               type="text" style="width: 70%"></td>
+                </tr>
+                <tr>
+                    <td><input type="radio" name="correcte" value="2"></td>
+                    <td><input class="textt" placeholder="Proposition 2" name="proposition2"
+                               type="text" style="width: 70%"></td>
+                </tr>
+                <tr>
+                    <td><input type="radio" name="correcte" value="3"></td>
+                    <td><input class="textt" placeholder="Proposition 3" name="proposition3"
+                               type="text" style="width: 70%"></td>
+                </tr>
+                <tr>
+                    <td><input type="radio" name="correcte" value="4"></td>
+                    <td><input class="textt" placeholder="Proposition 4" name="proposition4"
+                               type="text" style="width: 70%"></td>
+                </tr>
+            </table>
+            <br/>
+        </div>
+
+        <div id="tabc" style="display: none">
+            <table style="width: 100%">
+                <tr>
+                    <td><p>Correct</p></td>
+                    <td><p>Proposition</p></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="correctec" value="1" checked></td>
+                    <td><input class="textt" placeholder="Proposition 1" name="propositionc1"
+                               type="text" style="width: 70%"></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="correctec" value="2"></td>
+                    <td><input class="textt" placeholder="Proposition 2" name="propositionc2"
+                               type="text" style="width: 70%"></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="correctec" value="3"></td>
+                    <td><input class="textt" placeholder="Proposition 3" name="propositionc3"
+                               type="text" style="width: 70%"></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="correctec" value="4"></td>
+                    <td><input class="textt" placeholder="Proposition 4" name="propositionc4"
+                               type="text" style="width: 70%"></td>
+                </tr>
+            </table>
+            <br/>
+        </div>
+
+
+        <input class="btns" type="submit" value="Valider">
+        <input class="btnr" type="reset" value="réinitialiser"><br/>
+    </form>
+</div>
+<br/>
+
+
+<!-- ************ Liste question ************ -->
+
+
+<div class="cardl" th:each="lstQs: ${LstQs}">
+
+
+    <form action="/GererQs" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="idModule" th:value="${lstQs.idModule}">
+        <input type="hidden" name="idQs" th:value="${lstQs.idQuestion}">
+
+        <h4 th:text="'Question: ' + ${lstQs.question}" style="margin: 1px">titre de Question</h4><br/>
+        <h5 th:text="'Nombre Point: ' + ${lstQs.nbPoints}" style="margin-bottom: 0px; margin-top: 0px"></h5><br/>
+        <h5 th:text="'reponse1: ' + ${lstQs.reponse1}" style="margin-left: 70px; margin-bottom: 0px; margin-top: 0px">
+            rep1</h5><br/>
+        <h5 th:text="'reponse2: ' + ${lstQs.reponse2}" style="margin-left: 70px; margin-bottom: 0px; margin-top: 0px">
+            rep2</h5><br/>
+        <h5 th:text="'reponse3: ' + ${lstQs.reponse3}" style="margin-left: 70px; margin-bottom: 0px; margin-top: 0px">
+            rep3</h5><br/>
+        <h5 th:text="'reponse4: ' + ${lstQs.reponse4}" style="margin-left: 70px; margin-bottom: 0px; margin-top: 0px">
+            rep4</h5><br/>
+        <br/>
+        <button type="submit" name="mod" class="btnm"> Modifier</button>
+        <button type="submit" name="supprimer" class="btnd">Supprimer</button>
+        </p>
+
+    </form>
+
+</div>
+
+
+</body>
+</html>
